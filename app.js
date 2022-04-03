@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const ejs = require('ejs');
 const flash = require('connect-flash')
 const ejsMate = require('ejs-mate');
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
 app.engine('ejs', ejsMate)
@@ -26,6 +28,7 @@ db.once("open", () => {
 app.get('/', (req, res) => {
     res.render("test");
 })
+
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");
